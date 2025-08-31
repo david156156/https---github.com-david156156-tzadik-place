@@ -183,7 +183,7 @@ export default function TzadikListClient({
       {Object.keys(groupedUsers)
         .sort()
         .map((letter) => (
-          <div key={letter} className="mb-6">
+          <div key={letter} className="mb-4">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-gradient-to-r from-amber-700 to-amber-800 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-lg">
                 {letter}
