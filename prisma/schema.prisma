@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Community {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  tzadikim  Tzadik[]
+}
+
+model Tzadik {
+  id          Int        @id @default(autoincrement())
+  name        String     // שֵׁם 
+  gender      Gender     @default(male)   // מגדר
+  community   Community? @relation(fields: [communityId], references: [id])
+  communityId Int?
+  birthDate   DateTime?  // תאריך לידה 
+  deathDate   DateTime?  // תאריך פטירה 
+  location    Float[]    // מיקום הציון 
+  descriptionPlace  String?  // תיאור המקום
+  mainImage   String?    // תמונה ראשית
+  images      String[]   // תמונות נוספות
+  biography   String[]   // בִּיוֹגְרַפִיָה 
+  article     String[]   // מאמרים 
+  books       String[]   // רשימת ספרים
+  country     String?    // מדינה
+  city        String?    // עיר
+}
+
+enum Gender {
+  male
+  female
+}
