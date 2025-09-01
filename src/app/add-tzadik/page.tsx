@@ -3,26 +3,6 @@ import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-// model Tzadik {
-//   id          Int        @id @default(autoincrement())
-//   name        String     // שֵׁם
-//   gender      Gender     @default(Male)   // מגדר
-//   community   Community? @relation(fields: [communityId], references: [id])
-//   birthDate   DateTime?  // תאריך לידה
-//   deathDate   DateTime?  // תאריך פטירה
-//   location    Float[]    // מיקום הציון
-//   descriptionPlace  String?  // תיאור המקום
-//   mainImage   String?    // תמונה ראשית
-//   images      String[]   // תמונות נוספות
-//   biography   String[]   // בִּיוֹגְרַפִיָה
-//   article     String[]   // מאמרים
-//   books       String[]   // רשימת ספרים
-//   latitude    Float?     // רוֹחַב
-//   longitude   Float?     // קו אורך
-//   state       String?    // מדינה
-//   city        String?    // עיר
-// }
-
 export default function NewPost() {
   async function createPost(formData: FormData) {
     "use server";

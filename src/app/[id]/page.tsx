@@ -14,11 +14,7 @@ interface User {
   community?: string | null;
 }
 
-export default async function Post({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function Post({ params }: { params: { id: string } }) {
   const { id } = await params;
   const tzadik = await prisma.tzadik.findUnique({
     where: { id: parseInt(id) },
