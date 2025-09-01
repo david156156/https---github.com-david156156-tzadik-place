@@ -4,16 +4,6 @@ import DeleteButton from "./DeleteButton";
 import React from "react";
 import { HDate } from "@hebcal/core";
 
-interface User {
-  id: number;
-  name: string;
-  gender?: string | null;
-  birthCity?: string | null;
-  deathCity?: string | null;
-  city?: string | null;
-  community?: string | null;
-}
-
 export default async function Post({ params }: { params: { id: string } }) {
   const { id } = params;
   const tzadik = await prisma.tzadik.findUnique({
