@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@hebcal/core':
+        specifier: ^5.10.1
+        version: 5.10.1
       '@prisma/client':
         specifier: ^6.15.0
         version: 6.15.0(prisma@6.15.0(typescript@5.9.2))(typescript@5.9.2)
@@ -269,6 +272,16 @@ packages:
   '@eslint/plugin-kit@0.3.5':
     resolution: {integrity: sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@hebcal/core@5.10.1':
+    resolution: {integrity: sha512-b9DYJM05l73soZs9I4O7QGAfhh2LpL4kv3pTRiUoMGK1J/hIJbYzg4/990t0rEJSw2/+LVApdyFjzz/21WwOFw==}
+    engines: {node: '>= 16.0.0'}
+
+  '@hebcal/hdate@0.14.4':
+    resolution: {integrity: sha512-S2k6e54esntw3a9mBqCp8j0ZrGwEhQZLRkNXX6zW2Cza6nayaewQPiz00dBKe+N4DYSg+d7xB1KusQ4l3vrFwg==}
+
+  '@hebcal/noaa@0.9.2':
+    resolution: {integrity: sha512-pw6hixqxdgkhaxj/5aQgaBYevLUaerUvEIPNUSKYn2B77NOH4xZQF1A3YZlXel8MzGHyVbtB434uS4QAOMjZWQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1834,6 +1847,10 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  quick-lru@6.1.2:
+    resolution: {integrity: sha512-AAFUA5O1d83pIHEhJwWCq/RQcRukCkn/NSm2QsTEMle5f2hP0ChI2+3Xb051PZCkLryI/Ir1MVKviT2FIloaTQ==}
+    engines: {node: '>=12'}
+
   rc9@2.1.2:
     resolution: {integrity: sha512-btXCnMmRIBINM2LDZoEmOogIZU7Qe7zn4BpomSKZ/ykbLObuBdvG+mFq11DL6fjH1DRwHhrlgtYWG96bJiC7Cg==}
 
@@ -2024,6 +2041,12 @@ packages:
   tar@7.4.3:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
+
+  temporal-polyfill@0.3.0:
+    resolution: {integrity: sha512-qNsTkX9K8hi+FHDfHmf22e/OGuXmfBm9RqNismxBrnSmZVJKegQ+HYYXT+R7Ha8F/YSm2Y34vmzD4cxMu2u95g==}
+
+  temporal-spec@0.3.0:
+    resolution: {integrity: sha512-n+noVpIqz4hYgFSMOSiINNOUOMFtV5cZQNCmmszA6GiVFVRt3G7AqVyhXjhCSmowvQn+NsGn+jMDMKJYHd3bSQ==}
 
   tinyexec@1.0.1:
     resolution: {integrity: sha512-5uC6DDlmeqiOwCPmK9jMSdOuZTh8bU39Ys6yidB+UTt5hfZUPGAypSgFRiEp+jbi9qH40BLDvy85jIU88wKSqw==}
@@ -2265,6 +2288,20 @@ snapshots:
     dependencies:
       '@eslint/core': 0.15.2
       levn: 0.4.1
+
+  '@hebcal/core@5.10.1':
+    dependencies:
+      '@hebcal/hdate': 0.14.4
+      '@hebcal/noaa': 0.9.2
+      quick-lru: 6.1.2
+      temporal-polyfill: 0.3.0
+      tslib: 2.8.1
+
+  '@hebcal/hdate@0.14.4': {}
+
+  '@hebcal/noaa@0.9.2':
+    dependencies:
+      temporal-polyfill: 0.3.0
 
   '@humanfs/core@0.19.1': {}
 
@@ -3941,6 +3978,8 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  quick-lru@6.1.2: {}
+
   rc9@2.1.2:
     dependencies:
       defu: 6.1.4
@@ -4201,6 +4240,12 @@ snapshots:
       minizlib: 3.0.2
       mkdirp: 3.0.1
       yallist: 5.0.0
+
+  temporal-polyfill@0.3.0:
+    dependencies:
+      temporal-spec: 0.3.0
+
+  temporal-spec@0.3.0: {}
 
   tinyexec@1.0.1: {}
 
