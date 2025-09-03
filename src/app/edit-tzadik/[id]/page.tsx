@@ -2,12 +2,8 @@ import { Gender } from "@/lib/generated/prisma/client";
 import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
-export default async function EditTzadik({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const id = parseInt(params.id);
+export default async function EditTzadik(props: any) {
+  const { id } = props.params;
   const tzadik = await prisma.tzadik.findUnique({
     where: { id },
     include: { community: true },
