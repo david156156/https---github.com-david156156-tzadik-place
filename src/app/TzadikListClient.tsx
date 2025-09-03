@@ -1,5 +1,6 @@
 "use client";
 import { Search } from "lucide-react";
+import Link from "next/link";
 import React, { useState, useMemo } from "react";
 
 interface Community {
@@ -170,13 +171,13 @@ export default function TzadikListClient({
             </div>
           )}
         </div>
-        <a
+        <Link
           href="/add-tzadik"
           className="bg-gradient-to-r from-amber-700 to-amber-800 hover:from-amber-800 hover:to-amber-900 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
         >
           <span className="text-xl font-bold">+</span>
           הוספת צדיק חדש
-        </a>
+        </Link>
       </div>
 
       {/* רשימת צדיקים מקובצת לפי אות */}
@@ -192,7 +193,7 @@ export default function TzadikListClient({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {groupedUsers[letter].map((user) => (
-                <a
+                <Link
                   key={user.id}
                   href={`/${user.id}`}
                   className="group cursor-pointer bg-white/90 backdrop-blur-sm hover:bg-white hover:shadow-xl transition-all duration-300 border border-amber-100 hover:border-amber-300 rounded-xl block"
@@ -243,7 +244,7 @@ export default function TzadikListClient({
                       )}
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

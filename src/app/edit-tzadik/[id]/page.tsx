@@ -1,5 +1,6 @@
 import { Gender } from "@/lib/generated/prisma/client";
 import prisma from "@/lib/prisma";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function EditTzadik({
@@ -87,12 +88,12 @@ export default async function EditTzadik({
       className="min-h-screen bg-[#FDFBF7] flex flex-col items-center justify-center py-12"
     >
       <div className="w-full flex justify-end max-w-2xl mb-8">
-        <a
+        <Link
           href={`/${id}`}
           className="px-4 py-1 rounded-full bg-gradient-to-r from-amber-700 to-amber-800 text-white font-semibold shadow hover:from-amber-800 hover:to-amber-900 hover:scale-105 transition-all duration-200"
         >
           חזרה לפרופיל
-        </a>
+        </Link>
       </div>
       <div className="w-full max-w-2xl bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-amber-100 p-10">
         <h1 className="text-3xl font-extrabold mb-8 text-center text-amber-900 font-[family-name:var(--font-geist-sans)]">

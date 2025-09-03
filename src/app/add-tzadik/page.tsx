@@ -2,6 +2,7 @@ import Form from "next/form";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function NewPost() {
   async function createPost(formData: FormData) {
@@ -87,12 +88,12 @@ export default function NewPost() {
       className="min-h-screen bg-[#FDFBF7] flex flex-col items-center justify-center py-12"
     >
       <div className="w-full flex justify-end max-w-2xl mb-8">
-        <a
+        <Link
           href="/"
           className="px-4 py-1 rounded-full bg-gradient-to-r from-amber-700 to-amber-800 text-white font-semibold shadow hover:from-amber-800 hover:to-amber-900 hover:scale-105 transition-all duration-200"
         >
           חזרה לדף הראשי
-        </a>
+        </Link>
       </div>
       <div className="w-full max-w-2xl bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-amber-100 p-10">
         <h1 className="text-3xl font-extrabold mb-8 text-center text-amber-900 font-[family-name:var(--font-geist-sans)]">

@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import DeleteButton from "./DeleteButton";
 import React from "react";
 import { HDate } from "@hebcal/core";
+import Link from "next/link";
 
 export default async function Post({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -44,7 +45,7 @@ export default async function Post({ params }: { params: { id: string } }) {
         {/* כותרת עליונה עם כפתורי עריכה ומחיקה */}
         <div className="flex justify-between items-center gap-4 mb-8">
           <div className="flex items-center gap-4">
-            <a
+            <Link
               href="/"
               className="px-3 py-2 rounded-full bg-white border border-amber-200 text-amber-800 font-semibold shadow hover:bg-amber-50 transition"
               title="חזרה לרשימה"
@@ -62,7 +63,7 @@ export default async function Post({ params }: { params: { id: string } }) {
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
-            </a>
+            </Link>
             <div>
               <h1 className="text-3xl font-bold text-amber-900">
                 {getTitle(tzadik)} {tzadik.name}{" "}
@@ -71,13 +72,13 @@ export default async function Post({ params }: { params: { id: string } }) {
             </div>
           </div>
           <div className="flex gap-2">
-            <a
+            <Link
               href={`/edit-tzadik/${tzadik.id}`}
               className="px-3 py-1 rounded-full bg-yellow-400 text-white font-semibold shadow hover:bg-yellow-500 transition"
               title="ערוך"
             >
               עריכה
-            </a>
+            </Link>
             <DeleteButton onDelete={handleDelete} />
           </div>
         </div>
@@ -142,7 +143,7 @@ export default async function Post({ params }: { params: { id: string } }) {
                 {/* פעולות מיקום */}
                 {tzadik.location[0] && (
                   <div className=" backdrop-blur-sm  flex flex-col gap-3">
-                    <a
+                    <Link
                       href={`https://maps.google.com/?q=${tzadik.location[0]},${tzadik.location[1]}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -150,8 +151,8 @@ export default async function Post({ params }: { params: { id: string } }) {
                       title="פתח ב-Google Maps"
                     >
                       פתח ב-Google Maps
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href={`https://waze.com/ul?ll=${tzadik.location[0]},${tzadik.location[1]}&navigate=yes`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -159,7 +160,7 @@ export default async function Post({ params }: { params: { id: string } }) {
                       title="פתח ב-Waze"
                     >
                       פתח ב-Waze
-                    </a>
+                    </Link>
                   </div>
                 )}
               </div>
